@@ -54,9 +54,11 @@ Yu_CodeBlock* Yu_ParseSourceCode(Yu_State* state, const char* sourcecode)
 	parser.tabsize = state->tabsize;
 	parser.sourcecode = sourcecode;
 	parser.filename = NULL;
-	parser.max_sourcecode_length = 10;
+	parser.max_sourcecode_length = 100000;
 
 	if (!Yu_TokenizeSourceCode(&parser, sourcecode)) return NULL;
 
+	Yu_PrintSourceCodeTokens(&parser);
+	
 	return NULL;
 }

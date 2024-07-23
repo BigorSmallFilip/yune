@@ -59,6 +59,8 @@ typedef struct
 
 Yu_Bool Yu_TokenizeSourceCode(Yu_ParserState* state);
 
+void Yu_PrintSourceCodeTokens(Yu_ParserState* parser);
+
 Yu_CodeBlock* Yu_ParseSourceCode(Yu_State* state, const char* sourcecode);
 
 #endif

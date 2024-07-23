@@ -26,7 +26,7 @@ extern const char* yu_keyword_strings[Yu_NUM_KEYWORDS];
 ** @param string String to check.
 ** @return The ID of the keyword or Yu_KW_NULL if not a keyword.
 */
-Yu_KeywordID Yu_GetKeyword(const char* string);
+Yu_KeywordID Yu_GetKeywordID(const char* string);
 
 
 
@@ -90,7 +90,7 @@ extern const unsigned char yu_operator_precedence[Yu_NUM_OPERATORS];
 ** @param string String to check.
 ** @return The ID of the operator or Yu_OP_NULL if not operator.
 */
-Yu_OperatorID Yu_GetOperator(const char* string);
+Yu_OperatorID Yu_GetOperatorID(const char* string);
 
 #define Yu_IsAssignmentOp(op)   ((op) >= Yu_OP_ASSIGN   && (op) <= Yu_OP_ASSIGNDIV)
 #define Yu_IsLogicalOp(op)      ((op) >= Yu_OP_NOT      && (op) <= Yu_OP_XOR)
@@ -122,7 +122,7 @@ extern const char yu_separator_chars[Yu_NUM_SEPARATORS];
 ** @param c Character to check.
 ** @return The ID of the separator or Yu_SP_NULL if not separator char.
 */
-Yu_SeparatorID Yu_GetSeparator(const char c);
+Yu_SeparatorID Yu_GetSeparatorID(const char c);
 
 
 
@@ -162,7 +162,7 @@ typedef struct Yu_ExprNode
 		{
 			char* str;
 			Yu_Hash hash;
-			Yu_Vector format; /* All subexpressions to be evaluated and inserted into the string literal upon loading */
+			Yu_Vector interpolation; /* All subexpressions to be evaluated and inserted into the string literal upon loading */
 			/* Example: str = "name is {person.name}" */
 		} u_string;
 		struct

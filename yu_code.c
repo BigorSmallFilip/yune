@@ -9,7 +9,7 @@ const char* yu_keyword_strings[Yu_NUM_KEYWORDS] =
 	"false",            "true"
 };
 
-Yu_KeywordID Yu_GetKeyword(const char* string)
+Yu_KeywordID Yu_GetKeywordID(const char* string)
 {
 	if (!string) return Yu_KW_NULL;
 	for (int i = 0; i < Yu_NUM_KEYWORDS; i++)
@@ -94,7 +94,7 @@ const char* yu_operatorid_strings[Yu_NUM_OPERATORS] =
 
 
 
-Yu_OperatorID Yu_GetOperator(const char* string)
+Yu_OperatorID Yu_GetOperatorID(const char* string)
 {
 	if (!string) return Yu_OP_NULL;
 	for (int i = 0; i <= Yu_OP_MEMBERACCESS; i++)
@@ -116,7 +116,7 @@ const char yu_separator_chars[Yu_NUM_SEPARATORS] =
 	',',
 };
 
-Yu_SeparatorID Yu_GetSeparator(const char c)
+Yu_SeparatorID Yu_GetSeparatorID(const char c)
 {
 	for (int i = 0; i < Yu_NUM_SEPARATORS; i++)
 		if (c == yu_separator_chars[i])

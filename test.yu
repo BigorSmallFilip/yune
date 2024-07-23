@@ -50,7 +50,7 @@ function testo(n)
 	
 	# And then a comment
 	if things_are_good(n / 2) return true else return false
-
+	
 	if true
 		print("guh")
 	else
@@ -69,7 +69,7 @@ function testo(n)
 	}
 	v = (1, 2.4, 5 ** 3)
 
-
+	
 variable = 20
 "guh is {variable}\x8F"
 
@@ -81,7 +81,7 @@ variable = 20
 
 
 
-Now for the hypotheticals:
+# Now for the hypotheticals
 
 struct Thing
 	float3 position
@@ -90,7 +90,6 @@ struct Thing
 	SpriteID sprite
 
 let i = 0
-i |= 0b01010101
 let v = (0, 0, 0) # int3
 let v = (0.0, 0.0, 0.0) # float3
 let v = (0.0, 0, 0) # float3
