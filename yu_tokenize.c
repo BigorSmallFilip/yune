@@ -425,7 +425,7 @@ void Yu_PrintSourceCodeTokens(Yu_ParserState* parser)
 		Yu_Token* token = parser->tokens.buffer[i];
 		if (token->firstonline)
 		{
-			printf("%i | ", linenum++);
+			printf("%5i | ", linenum++);
 		}
 		for (int intent = 0; intent < token->indentlevel; intent++)
 			putchar(' ');
