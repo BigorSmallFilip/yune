@@ -1,0 +1,18 @@
+
+# Null check operator: ?
+
+words = ["word", "some", "hello"]
+print(words[10])					# - null
+print(words[10].length)				# <crashes because of null derefrence>
+
+# It may be useful to make concise null checks
+
+print(words[10]?.length)			# aborts the expression
+
+
+
+# The ? operator can be used for . and []
+
+danger = null
+print(danger[0])					# <crashes>
+print(danger?[0])                   # - null

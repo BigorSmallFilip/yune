@@ -61,5 +61,13 @@
     <None Include="yune-0.0.1.vsix">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="big.yu">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="fun.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

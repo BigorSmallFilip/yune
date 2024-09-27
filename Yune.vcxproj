@@ -147,8 +147,12 @@
     <ClInclude Include="yu_value.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="big.yu" />
     <None Include="test.yu" />
     <None Include="yune-0.0.1.vsix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="fun.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
