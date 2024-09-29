@@ -46,7 +46,7 @@ int main(int argc, char** argv)
 	Yu_State* state = Yu_CreateState();
 	if (!state) return 1;
 	
-	char* filestring = load_string_from_file("test.yu");
+	char* filestring = load_string_from_file("big.yu");
 	Yu_CodeBlock* block = Yu_ParseSourceCode(state, filestring);
 	free(filestring);
 

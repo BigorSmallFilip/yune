@@ -1,0 +1,138 @@
+# This is le testing file
+
+if true
+	print(1)
+
+for i = 0, 10
+	print(i)
+
+print("Please input le number: ")
+a = input()
+if a < 5
+	print("< 5")
+else
+	print(">= 5"); print("This is good")
+
+
+
+for i = 0, 10
+	print(i)
+
+for i = 0, i < 10, i += 1
+	print(i)
+
+list = [0, 1, 2]
+for i in list print(i)
+
+for i, index in list
+
+obj = { name = "Gjuh", age = 10000 }
+for key, value in obj
+	print(key, " = ", value)
+
+
+
+position = (2, 2, 4)
+position *= 2
+position.xy += (1, 1)
+print(position)
+
+
+
+function fibonacci(n)
+	if n < 3
+		return n - 1
+	a = 0
+	b = 1
+
+	for i = 0, n - 2
+		c = b
+		b = a + b
+		a = c
+	return b
+
+
+
+# Basic longest word finder
+function longest_word(str)
+	words = str.split(' ')
+	longest_word = ''
+	for word in words
+		if word.length > longest_word.length
+			longest_word = word
+	return longest_word
+
+
+
+# Advanced longest word finder
+# Returns array of all longest words
+function longest_words(str)
+	words = str.split(' ')
+	longest_words = ['']
+	for word in words
+		if word.length > longest_words[0].length
+			longest_words = [word]
+		else if word.length == longest_words[0].length
+			longest_words.push(word)
+	return longest_words
+	
+
+
+
+# Type literals
+bool = false
+number = 0.5
+string = "This is a string"
+vector = (1.2, 3.4, -1.9)
+list = [10, bool, number, "nicee"]
+obj = { age = 100, name = "alice" }
+
+# String interpolation
+interpo = "The bool is {bool}\nThe vector.x is {vector.x}, 1 + 1 is {1 + 1}, obj.name is {obj.name}"
+
+# Nested things
+parent = {
+	children = [
+		{ age = 9.11, name = "NYC" }
+		{ age = 2001, name = "Oh no" }
+	]
+	age = 9919
+	name = 50
+
+	function local_function()
+		print("Tis is a local function that can be mutated")
+		return false
+}
+
+
+
+function testo(n)
+	if n > 5: print("Yes"); print("Good")
+		do_thing(n + 1)
+	else: do_that(n - 1)
+		print("No"); print("bad")
+	
+	# And then a comment
+	if things_are_good(n / 2): return true; else: return false
+	
+	if true
+		print("guh")
+	else
+		print("no")
+		l = [1, 2, 3]
+		for num in l
+			print(num)
+	
+	print("done")
+	return null
+
+	obj = {
+		age = 20
+		name = "lgejoeifj"
+	}
+
+	v = (1, 2.4, 5 ** 3)
+
+	
+variable = 20
+"guh is {variable}\x8F"

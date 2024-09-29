@@ -1,108 +1,26 @@
-# This is a testing YuneScript file
+if true == true
+	test()
 
-if true
-	print("That is true")
 
-for i = 0, 10
-	print(i)
 
-print("Please input the number: ")
-a = input()
-if a < 5
-	print("< 5")
+# No
+
+if 10 > 5:
+  func1()
+  func_ontrue()
 else
-	print(">= 5"); print("This is good")
+ func_onfalse()
+ if false == false
+  nested()
+
+
+# When calling parse_code_block
+# The indent level of the parent must be given
+# The indent level of all statements inside the block must be HIGHER or the statement must be INLINE
+# The blocks indent level will be stored as inline until a regular line is given.
 
 
 
-# Type literals
-bool = false
-number = 0.5
-string = "This is a string"
-vector = (1.2, 3.4, -1.9)
-list = [10, bool, number, "nicee"]
-obj = { age = 100, name = "alice" }
-
-# String interpolation
-interpo = "The bool is {bool}\nThe vector.x is {vector.x}, 1 + 1 is {1 + 1}, obj.name is {obj.name}"
-
-# Nested things
-parent = {
-	children = [
-		{ age = 9.11, name = "NYC" }
-		{ age = 2001, name = "Oh no" }
-	]
-	age = 9919
-	name = 50
-
-	function local_function()
-		print("Tis is a local function that can be mutated")
-		return false
-}
-
-
-
-function testo(n)
-	if n > 5 print("Yes"); print("Good")
-		do_thing(n + 1)
-	else do_that(n - 1)
-		print("No"); print("bad")
-	
-	# And then a comment
-	if things_are_good(n / 2) return true else return false
-	
-	if true
-		print("guh")
-	else
-		print("no")
-		l = [1, 2, 3]
-		for num in l
-			print(num)
-	
-	print("done")
-	return null
-
-	obj = {
-		age = 20
-		name = "lgejoeifj"
-
-	}
-	v = (1, 2.4, 5 ** 3)
-
-	
-variable = 20
-"guh is {variable}\x8F"
-
-
-
-
-
-
-
-
-
-# Now for the hypotheticals
-
-struct Thing
-	float3 position
-	float3 velocity
-	uint3 thingo
-	SpriteID sprite
-
-let i = 0
-let v = (0, 0, 0) # int3
-let v = (0.0, 0.0, 0.0) # float3
-let v = (0.0, 0, 0) # float3
-let v = float3(0, 0, 0)
-let v = uint3(0, 0.5) # uint3(0, 0, 0)
-int i = 0.2
-
-
-void do_thing(int num, int number)
-	print(num)
-	return number + 10
-
-
-
-# Function calls are just pointers to bytecode
-# The global scope is loaded and function content is loaded second. This ensures that all function calls made will work.
+if cond1 == cond1: if cond2 == cond2
+		print_cond2()
+	print_cond1()

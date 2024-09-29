@@ -27,7 +27,7 @@ const unsigned char chartype_lut[256] =
 	10,0, 0, 0, 0, 0, 0, 0, 0, 6, 9, 0, 0, 0, 0, 0,
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 	6, 4, 7, 8, 0, 0, 4, 7, 5, 5, 4, 4, 5, 4, 3, 4,
-	2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 9, 4, 4, 4, 0,
+	2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 9, 9, 4, 4, 4, 0,
 	0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 	1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 0, 5, 0, 1,
 	0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -92,6 +92,7 @@ static Yu_Token* create_token()
 	token->string = NULL;
 	token->lastonline = Yu_FALSE;
 	token->firstonline = Yu_FALSE;
+	token->inlinestatement = Yu_FALSE;
 	token->linenum = -1;
 	token->indentlevel = -1;
 	return token;
@@ -258,9 +259,9 @@ static Yu_Token* read_string_literal_token(Yu_ParserState* parser)
 		char c = parser->sourcecode[i];
 		if (is_quote(c))
 		{
-			end = i + 1;
+			end = i + 1; /* Plus 1 to include quote */
 			break;
-		} else if (is_endline(c) || is_terminator(c))
+		} else if (c == '\n' || is_terminator(c))
 		{
 			syntax_error("String does not have closing quotation marks");
 			return NULL;
@@ -321,6 +322,7 @@ Yu_Bool Yu_TokenizeSourceCode(Yu_ParserState* parser)
 	if (!Yu_InitVector(&parser->tokens)) return Yu_FALSE;
 	short line_indentlevel = 0;
 	Yu_Bool reading_indent = Yu_TRUE;
+	Yu_Bool newstatement = Yu_TRUE;
 	Yu_Bool continue_reading = Yu_TRUE;
 
 	while (continue_reading)
@@ -359,6 +361,7 @@ Yu_Bool Yu_TokenizeSourceCode(Yu_ParserState* parser)
 				reading_indent = Yu_TRUE;
 			}
 			parser->charpos++;
+			newstatement = Yu_TRUE;
 			continue;
 		}
 		case CT_SPACE:
@@ -387,8 +390,14 @@ Yu_Bool Yu_TokenizeSourceCode(Yu_ParserState* parser)
 			if (reading_indent)
 			{
 				token->indentlevel = line_indentlevel;
-				token->firstonline = Yu_TRUE;
 				reading_indent = Yu_FALSE;
+			} else
+				if (newstatement)
+					token->inlinestatement = Yu_TRUE;
+			if (newstatement)
+			{
+				token->firstonline = Yu_TRUE;
+				newstatement = Yu_FALSE;
 			}
 			Yu_PushBackVector(&parser->tokens, token);
 		} else
@@ -425,11 +434,14 @@ void Yu_PrintSourceCodeTokens(Yu_ParserState* parser)
 		Yu_Token* token = parser->tokens.buffer[i];
 		if (token->firstonline)
 		{
-			printf("%5i | ", linenum++);
+			printf("%5i | ", token->linenum);
 		}
 		for (int intent = 0; intent < token->indentlevel; intent++)
 			putchar(' ');
+		if (token->firstonline) printf("\x1B[1;32m");
+		//if (token->firstonline) printf("\x1B[1;34m");
 		Yu_PrintToken(token);
+		printf("\x1B[0m");
 		putchar(token->lastonline ? '\n' : ' ');
 	}
 	putchar('\n');

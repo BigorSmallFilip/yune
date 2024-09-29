@@ -267,12 +267,14 @@ typedef enum
 	Yu_ST_DOWHILE,
 	Yu_ST_RETURN,
 	Yu_NUM_STATEMENTTYPES
-} Yu_StatementType;
+};
+typedef char Yu_StatementType;
 extern const char* yu_statementtype_names[Yu_NUM_STATEMENTTYPES];
 
 typedef struct Yu_Statement
 {
 	Yu_StatementType type;
+	short indentlevel;
 	union
 	{
 		struct

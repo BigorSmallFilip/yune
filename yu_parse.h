@@ -35,6 +35,7 @@ typedef struct Yu_Token
 	short indentlevel;          /* The indentation of the line of this token if it is the first on the line. -1 if not the first token on the line */
 	Yu_Bool lastonline;         /* If this token is the last on a line. For expressions ending without semicolons */
 	Yu_Bool firstonline;        /* For indentation syntax */
+	Yu_Bool inlinestatement;    /* This token is in a new block but on the same line */
 } Yu_Token;
 
 void Yu_PrintToken(const Yu_Token* token);
