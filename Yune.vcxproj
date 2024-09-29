@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="big.yu" />
+    <None Include="tesin_yune.yu" />
     <None Include="test.yu" />
     <None Include="yune-0.0.1.vsix" />
   </ItemGroup>

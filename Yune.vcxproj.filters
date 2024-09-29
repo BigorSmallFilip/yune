@@ -70,6 +70,9 @@
     <None Include="big.yu">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="tesin_yune.yu">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="fun.txt">
