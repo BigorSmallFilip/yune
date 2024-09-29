@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="testmain.c" />
     <ClCompile Include="yu_code.c" />
+    <ClCompile Include="yu_object.c" />
     <ClCompile Include="yu_parse.c" />
     <ClCompile Include="yu_state.c" />
     <ClCompile Include="yu_tokenize.c" />
@@ -141,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="yune.h" />
     <ClInclude Include="yu_code.h" />
+    <ClInclude Include="yu_object.h" />
     <ClInclude Include="yu_parse.h" />
     <ClInclude Include="yu_state.h" />
     <ClInclude Include="yu_utility.h" />
