@@ -16,3 +16,13 @@ print(words[10]?.length)			# aborts the expression
 danger = null
 print(danger[0])					# <crashes>
 print(danger?[0])                   # - null
+
+
+
+# TYPED SCRIPT???
+
+int i = 1
+float f = 2.5
+
+i += f
+
