@@ -43,6 +43,7 @@ const char* yu_operator_strings[Yu_NUM_OPERATORS] =
 	"!",
 	"&",
 	"|",
+	"^",
 
 	"==",
 	"!=",
@@ -79,6 +80,7 @@ const char* yu_operatorid_strings[Yu_NUM_OPERATORS] =
 	"OP_NOT",
 	"OP_AND",
 	"OP_OR",
+	"OP_XOR",
 
 	"OP_EQUALITY",
 	"OP_INEQUALITY",

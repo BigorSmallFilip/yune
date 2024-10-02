@@ -3,6 +3,7 @@
 
 #include "yu_utility.h"
 #include "yu_code.h"
+#include "yu_state.h"
 
 enum
 {
@@ -38,11 +39,15 @@ typedef struct
 	};
 } Yu_Value;
 
+Yu_Bool Yu_IsTruthy(const Yu_Value* v);
+
+void Yu_CastBoolToNumber(Yu_Value* v);
+
 /*
 ** Performs a binary operation on two values and stores the result in left
 ** This function mutates the left operand!
 */
-Yu_Bool Yu_ValueBinOp(Yu_Value* left, const Yu_Value* right, Yu_OperatorID op);
+Yu_Bool Yu_ValueBinOp(Yu_State* state, Yu_Value* left, const Yu_Value* right, Yu_OperatorID op);
 
 void Yu_PrintValue(const Yu_Value* value);
 

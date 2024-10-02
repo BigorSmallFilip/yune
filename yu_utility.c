@@ -5,7 +5,6 @@
 Yu_Bool Yu_InitVector(Yu_Vector* vector)
 {
 	Yu_Assert(vector);
-	Yu_Assert(vector->buffer == NULL && vector->count == 0 && vector->capacity == 0);
 	vector->buffer = Yu_Calloc(Yu_MIN_VECTOR_CAPACITY, sizeof(void*));
 	vector->capacity = Yu_MIN_VECTOR_CAPACITY;
 	vector->count = 0;
@@ -15,7 +14,6 @@ Yu_Bool Yu_InitVector(Yu_Vector* vector)
 Yu_Bool Yu_InitVectorSize(Yu_Vector* vector, Yu_Size capacity)
 {
 	Yu_Assert(vector);
-	Yu_Assert(vector->buffer == NULL && vector->count == 0 && vector->capacity == 0);
 	Yu_Assert(capacity >= Yu_MIN_VECTOR_CAPACITY);
 	vector->buffer = Yu_Calloc(capacity, sizeof(void*));
 	vector->capacity = capacity;

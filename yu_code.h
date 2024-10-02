@@ -54,6 +54,7 @@ enum
 	Yu_OP_NOT,          /* '!' Logical not */
 	Yu_OP_AND,          /* '&' Logical and */
 	Yu_OP_OR,           /* '|' Logical or */
+	Yu_OP_XOR,          /* '^' Logical xor */
 
 	Yu_OP_EQUALITY,     /* '==' */
 	Yu_OP_INEQUALITY,   /* '!=' */
@@ -76,8 +77,7 @@ enum
 	Yu_NUM_OPERATORS,
 	Yu_OP_NULL = -1,    /* Invalid or non operator */
 };
-#define Yu_IsValidOperator(id) ((id) >= 0)
-#define Yu_AssertValidOperator(id) Yu_Assert((id) >= 0 && (id) < Yu_NUM_OPERATORS)
+#define Yu_IsValidOperator(id) ((id) >= 0 && (id) < Yu_NUM_OPERATORS)
 extern const char* yu_operator_strings[Yu_NUM_OPERATORS];
 extern const char* yu_operatorid_strings[Yu_NUM_OPERATORS];
 extern const unsigned char yu_operator_precedence[Yu_NUM_OPERATORS];

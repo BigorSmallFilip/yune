@@ -8,6 +8,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>
+#include <math.h>
 
 #ifdef _DEBUG
 #define Yu_DEBUG
@@ -32,11 +33,15 @@ typedef double Yu_Float;
 typedef int64_t Yu_Int;
 #define Yu_StringToFloat strtod
 #define Yu_StringToInt strtol
+#define Yu_Exp pow
+#define Yu_Mod fmod
 #else
 typedef float Yu_Float;
 typedef int32_t Yu_Int;
 #define Yu_StringToFloat strtof
 #define Yu_StringToInt strtol
+#define Yu_Exp powf
+#define Yu_Mod fmodf
 #endif
 
 

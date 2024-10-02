@@ -51,10 +51,11 @@ int main(int argc, char** argv)
 	free(filestring);
 
 	Yu_Value v1 = { Yu_VT_NUMBER, .u_number = 2.5 };
-	Yu_Value v2 = { Yu_VT_NUMBER, .u_number = 2.5 };
-	Yu_Value v3 = { Yu_VT_VECTOR, .u_vector = { 4, 0, 1, 2, 3 } };
-	Yu_ValueBinOp(&v1, &v2, Yu_OP_ADD);
-	Yu_PrintValue(&v3);
+	Yu_Value v2 = { Yu_VT_BOOL, .u_bool = Yu_TRUE };
+	Yu_ValueBinOp(state, &v1, &v2, Yu_OP_ADD);
+	Yu_PrintValue(&v1);
+
+	Yu_PrintStateMessages(state);
 
 	return 0;
 }
